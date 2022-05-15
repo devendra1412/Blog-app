@@ -1,0 +1,15 @@
+<% include partilas\header.ejs %>
+
+<h1>Home</h1>
+<p> <%= StartingContent %> </p>
+<% console.log(posts) %>
+<% posts.forEach(function(element){ %>
+<%    console.log(element.title);  %>
+      <h1><%= element.title %></h1>
+      <p> <%= element.content.substring(0, 100)+"..." %>
+       <a href="posts/<%= element.title %>">Read More</a>
+    </p>
+<% }) %>
+
+<%- include("partilas/footer") -%>
+
