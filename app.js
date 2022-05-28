@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require('lodash');
 const moongose = require("mongoose");
-moongose.connect("mongodb+srv://Shivam:Test-123@cluster0.a3pk5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser : true, useUnifiedTopology: true});
+moongose.connect("mongodb+srv://Shivam:shivam@cluster0.a3pk5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser : true, useUnifiedTopology: true});
 
 
 
@@ -120,7 +120,7 @@ app.post("/compose", function(req, res){
 })
 
 let port = process.env.PORT;
-if(port == NULL || port == ""){
+if(port == null || port == ""){
   port = 3000;
 }
  
