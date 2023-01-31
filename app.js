@@ -5,7 +5,10 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require('lodash');
 const moongose = require("mongoose");
-moongose.connect("mongodb+srv://Shivam:shivam@cluster0.a3pk5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {useNewUrlParser : true, useUnifiedTopology: true});
+const dotenv = require('dotenv');
+
+dotenv.config();
+moongose.connect(process.env.MongoKey, {useNewUrlParser : true, useUnifiedTopology: true});
 
 
 
@@ -84,20 +87,33 @@ app.get("/contact", function(req, res){
 })
 
 app.get("/compose", function(req, res){
-  res.render("compose")
+  res.render("compose");
 })
 app.get("/posts/:Postname", function(req, res){
   const requestedtitle = _.lowerCase(req.params.Postname);
-   posts.forEach(function(post){
-     const storedtitle = _.lowerCase(post.title)
-     if(storedtitle == requestedtitle){
-       console.log("matched Found")
-       res.render("post" , {
-        Posttitle : storedtitle,
-        postContent : post.content
-      });
-     }
-   })
+  postitem.find({}, function(err, posts){
+    posts.forEach(function(post){
+      const storedtitle = _.lowerCase(post.title)
+      if(storedtitle == requestedtitle){
+        console.log("matched Found")
+        res.render("post" , {
+         Posttitle : storedtitle,
+         postContent : post.content
+       });
+      }
+    })
+    
+  })
+  //  posts.forEach(function(post){
+  //    const storedtitle = _.lowerCase(post.title)
+  //    if(storedtitle == requestedtitle){
+  //      console.log("matched Found")
+  //      res.render("post" , {
+  //       Posttitle : storedtitle,
+  //       postContent : post.content
+  //     });
+  //    }
+  //  })
 })
 
 app.post("/compose", function(req, res){
