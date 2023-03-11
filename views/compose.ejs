@@ -1,4 +1,5 @@
-<% include partilas\header.ejs %>
+<%- include('../partials/header.ejs'); %>
+
 
     <h1>Compose</h1>
     <form action="/compose" method="post">
@@ -11,4 +12,4 @@
         <button type="submit" class="btn btn-primary" >Publish</button>
     </form>
 
-    <%- include("partilas/footer") -%>
+    <%- include('../partials/footer.ejs'); %>
