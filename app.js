@@ -28,22 +28,19 @@ const postschema ={
 const postitem = moongose.model("postitem" , postschema);
 
 const postitem1 = new postitem({
-     title : "Hari",
+     title : "Deva",
      content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores laborum, tenetur in qui molestiae earum"
 })
 
 const postitem2 = new postitem({
-  title : "Sagar",
+  title : "Atharva",
   content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores laborum, tenetur in qui molestiae earum"
 })
 
-const postitem3 = new postitem({
-  title : "Shivam",
-  content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit asperiores laborum, tenetur in qui molestiae earum"
-})
 
-const posts = [postitem1, postitem2,postitem3];
-const postarr = [postitem1, postitem2,postitem3];
+
+const posts = [postitem1, postitem2];
+const postarr = [postitem1, postitem2];
 
 
 
