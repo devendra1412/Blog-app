@@ -3,11 +3,12 @@
 <h1>Home</h1>
 <p> <%= StartingContent %> </p>
 <% console.log(posts) %>
+<a href="/compose" style="padding: 10px; border: 1px solid gray; border-radius: 10px; text-decoration: none;">Compose </a>
 <% posts.forEach(function(element){ %>
 <%    console.log(element.title);  %>
-      <h1><%= element.title %></h1>
-      <p> <%= element.content.substring(0, 100)+"..." %>
-       <a href="posts/<%= element.title %>">Read More</a>
+      <h1><%= element.POST_TITLE %></h1>
+      <p> <%= element.POST_CONTENT.substring(0, 100)+"..." %>
+       <a href="posts/<%= element.POST_ID %>">Read More</a>
     </p>
 <% }) %>
 
